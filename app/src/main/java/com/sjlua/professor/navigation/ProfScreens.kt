@@ -16,6 +16,9 @@ object Registration
 @Serializable
 object Home
 
+@Serializable
+object Settings
+
 /**
  * This is used to store all the available routes/pages in the bottom bar.
  * It will store the Serializable object, the icon and the name when in the bottom bar.

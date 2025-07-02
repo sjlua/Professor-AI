@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import com.sjlua.professor.data.ProfAuthManager
 import com.sjlua.professor.view.HomeScreen
 import com.sjlua.professor.view.RegistrationScreen
+import com.sjlua.professor.view.SettingsScreen
 import com.sjlua.professor.view.WelcomeScreen
 
 /**
@@ -51,6 +52,12 @@ fun ProfNavHost(navController: NavHostController, innerPadding: PaddingValues) {
 
         composable<Home> {
             HomeScreen(navController)
+        }
+
+        composable<Settings> {
+            SettingsScreen(
+                navigateHome = { navController.navigate(Home) }
+            )
         }
     }
 }

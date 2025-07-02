@@ -4,6 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.AccountBox
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Search
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -26,7 +27,7 @@ fun ProfNavBar(
     val bottomBarEntries = listOf(
         BottomBarEntry(Welcome, Icons.Outlined.Home, "Welcome"),
         BottomBarEntry(Home, Icons.Outlined.Search, "Professor"),
-        BottomBarEntry(Registration, Icons.Outlined.AccountBox, "My Account")
+        BottomBarEntry(Settings, Icons.Outlined.Settings, "Settings")
     )
 
     // Compose Bottom App Bar
