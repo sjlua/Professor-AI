@@ -26,14 +26,6 @@ class HomeViewModel : ViewModel() {
         _prompt.value = newValue
     }
 
-    /**
-     * Instance of Gemini model
-     */
-    private val generativeModel = GenerativeModel(
-        modelName = "gemini-1.5-flash",
-        apiKey = BuildConfig.GEMINI_API_KEY
-    )
-
     // Latest AI response
     private val _professorResponse = MutableStateFlow<String>("")
     val professorResponse: StateFlow<String> = _professorResponse.asStateFlow()
@@ -50,11 +42,20 @@ class HomeViewModel : ViewModel() {
             // Set UI state to loading
             _responseLoadingState.value = UIState.Loading
 
+            // Instance of Gemini model
+            // We initialize it here to ensure we get the latest API key if it has changed
+            val currentApiKey = ProfAuthManager.getApiKey(context).ifEmpty { BuildConfig.GEMINI_API_KEY }
+            
+            val generativeModel = GenerativeModel(
+                modelName = "gemini-2.5-flash-lite",
+                apiKey = currentApiKey
+            )
+
             viewModelScope.launch(Dispatchers.IO) {
                 try {
                     val response = generativeModel.generateContent(
                         content {
-                            text("Name is: " + ProfAuthManager.getUserName(context) + ". Answer in 300 characters or less: " + prompt.value)
+                            text("My name is: " + ProfAuthManager.getUserName(context) + ". Answer my question in 700 characters or less (in paragraphs!), with 100% accuracy, no em-dashes. Make it natural: " + prompt.value)
                         }
                     )
 

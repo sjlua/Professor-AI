@@ -25,7 +25,7 @@ fun ProfNavBar(
 ) {
     // Store all navigation pages
     val bottomBarEntries = listOf(
-        BottomBarEntry(Welcome, Icons.Outlined.Home, "Welcome"),
+//        BottomBarEntry(Welcome, Icons.Outlined.Home, "Welcome"),
         BottomBarEntry(Home, Icons.Outlined.Search, "Professor"),
         BottomBarEntry(Settings, Icons.Outlined.Settings, "Settings")
     )

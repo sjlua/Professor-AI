@@ -130,6 +130,8 @@ fun HomeScreen(
                         text = professorResponse.value
                     )
                 }
+            } else {
+                print("Failed to get a response")
             }
         }
     }

@@ -48,6 +48,7 @@ fun SettingsScreen(
     // Must be called once
     LaunchedEffect(Unit) {
         settingsViewModel.updateUserName(ProfAuthManager.getUserName(context))
+        settingsViewModel.updateApiKey(ProfAuthManager.getApiKey(context))
     }
 
     // Stores the following variable StateFlows in a read-only state.

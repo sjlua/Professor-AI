@@ -27,4 +27,24 @@ object ProfAuthManager {
             putString("userName", userName)
         }
     }
+
+    /**
+     * Returns the user's custom API key
+     */
+    fun getApiKey(context: Context): String {
+        val sharedPreferences = context.getSharedPreferences("ProfessorSP", Context.MODE_PRIVATE)
+
+        val apiKey = sharedPreferences.getString("apiKey", "")
+
+        return apiKey.toString()
+    }
+
+    /**
+     * Updates the user's custom API key
+     */
+    fun setApiKey(context: Context, apiKey: String) {
+        context.getSharedPreferences("ProfessorSP", Context.MODE_PRIVATE).edit {
+            putString("apiKey", apiKey)
+        }
+    }
 }

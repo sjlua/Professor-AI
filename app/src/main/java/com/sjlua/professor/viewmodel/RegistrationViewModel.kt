@@ -34,9 +34,10 @@ class RegistrationViewModel : ViewModel() {
     }
 
     /**
-     * Stores the user's name
+     * Stores the user's name and API key
      */
     fun registerUser(context: Context) = viewModelScope.launch {
         ProfAuthManager.setUserName(context, userName.value)
+        ProfAuthManager.setApiKey(context, apiKey.value)
     }
 }
